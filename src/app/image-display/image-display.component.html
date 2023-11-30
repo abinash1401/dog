@@ -1,0 +1,27 @@
+<!-- <div class="container">
+    <div id="button">
+        <button class="btn" type="button" (click)="fetchOnButtonClick()">Fetch Data</button>
+    </div>
+
+    <div id="box">
+        <div *ngIf="Data">
+            <ul>
+              <li *ngFor="let image of Data">
+                    <img [src]="image.href" alt="'dogs" />
+              </li>
+            </ul>
+    </div>
+</div> -->
+<div class="container">
+    <div id="button">
+      <button class="btn" type="button" (click)="fetchOnButtonClick()">Fetch Data</button>
+    </div>
+  
+    <div id="box">
+        <ng-container *ngFor="let imageSrc of Data">
+            <!-- <div *ngIf="showError(imageSrc)" class="error-message">Error loading image</div> -->
+            <img class="img" [src]="imageSrc" alt="'dogs'" (error)="handleImageError(imageSrc)" *ngIf="!showError(imageSrc)" />
+        </ng-container>
+    </div>
+  </div>
+  
